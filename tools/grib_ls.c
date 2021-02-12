@@ -397,9 +397,9 @@ int grib_tool_finalise_action(grib_runtime_options* options)
 {
     int i = 0;
     if (options->latlon && options->verbose) {
-        printf("Input Point: latitude=%.2f  longitude=%.2f\n", lat, lon);
+        printf("Input Point: latitude=%g  longitude=%g\n", lat, lon);
         if (options->latlon_idx >= 0 && options->latlon_idx < LATLON_SIZE) {
-            printf("Grid Point chosen #%d index=%d latitude=%.2f longitude=%.2f distance=%.2f (Km)\n",
+            printf("Grid Point chosen #%d index=%d latitude=%g longitude=%g distance=%g (km)\n",
                    options->latlon_idx + 1, (int)options->indexes[options->latlon_idx],
                    options->lats[options->latlon_idx],
                    options->lons[options->latlon_idx],
@@ -408,7 +408,7 @@ int grib_tool_finalise_action(grib_runtime_options* options)
         if (options->latlon_mask) {
             printf("Mask values:\n");
             for (i = 0; i < LATLON_SIZE; i++) {
-                printf("- %d - index=%d latitude=%.2f longitude=%.2f distance=%.2f (Km) value=%.2f\n",
+                printf("- %d - index=%d latitude=%g longitude=%g distance=%g (km) value=%.2f\n",
                        i + 1, (int)options->indexes[i], options->lats[i], options->lons[i],
                        options->distances[i], options->mask_values[i]);
             }
@@ -416,7 +416,7 @@ int grib_tool_finalise_action(grib_runtime_options* options)
         else {
             printf("Other grid Points\n");
             for (i = 0; i < LATLON_SIZE; i++) {
-                printf("- %d - index=%d latitude=%.2f longitude=%.2f distance=%.2f (Km)\n",
+                printf("- %d - index=%d latitude=%g longitude=%g distance=%g (km)\n",
                        i + 1, (int)options->indexes[i], options->lats[i], options->lons[i],
                        options->distances[i]);
             }
